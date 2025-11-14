@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imo State Transport Co. Ltd</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <main>
+  <h2>Contact Us</h2>
+  <form>
+    <label>Email: <input type="email" required /></label>
+    <label>Message: <textarea required></textarea></label>
+    <button type="submit">Send Message</button>
+  </form>
+  <p>📍 Owerri, Imo State<br>📞 +234 803 123 4567</p>
+  <section class="glass-panel">
+  <h2>Our Terminals</h2>
+  <div id="map" style="height: 400px; border-radius: 12px;"></div>
+</section>
+</main>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+</script>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([5.4836, 7.0333], 13); // Owerri coordinates
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  // Add a marker for Owerri Terminal
+  L.marker([5.4836, 7.0333]).addTo(map)
+    .bindPopup('<b>Owerri Terminal</b><br>Imo State Transport Co.')
+    .openPopup();
+</script>
+</body>
+</html>
